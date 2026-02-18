@@ -47,3 +47,19 @@
 .receipt-container button:hover {
     background-color: #e67300;
 }
+
+.logo {
+    width: 180px;
+    height: auto;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tagline {
+    font-style: italic;
+    color: #e67300;
+    margin-bottom: 10px;
+}
+
