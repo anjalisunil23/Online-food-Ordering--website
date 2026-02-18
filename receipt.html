@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Receipt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="receipt-page">
+
+<div class="receipt-container">
+
+    <h1>Delicious Bites</h1>
+    <h2>Order Receipt</h2>
+
+    <p><strong>Order ID:</strong> <span id="order-id"></span></p>
+    <p><strong>Date:</strong> <span id="order-date"></span></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody id="receipt-items"></tbody>
+    </table>
+
+    <h2>Total Amount: ₹<span id="receipt-total"></span></h2>
+
+    <button onclick="window.print()">Print Receipt</button>
+
+</div>
+
+<script src="receipt.js"></script>
+</body>
+</html>
