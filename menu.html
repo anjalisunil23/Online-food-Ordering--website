@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fast Food Corner - Menu</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #fff7ef;
+    }
+
+    header {
+        background: #ff7b00;
+        padding: 20px;
+        text-align: center;
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .category {
+        font-size: 30px;
+        font-weight: bold;
+        margin: 30px 20px 10px;
+        color: #ff7b00;
+    }
+
+    .menu-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .item-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        text-align: center;
+        padding-bottom: 15px;
+        transition: 0.3s;
+    }
+
+    .item-card:hover {
+        transform: scale(1.03);
+    }
+
+    .item-card img {
+        width: 50%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .item-name {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .price {
+        color: #ff7b00;
+        font-size: 18px;
+        margin: 5px 0;
+    }
+
+    .btn {
+        background: #ff7b00;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    .btn:hover {
+        background: #e46f00;
+    }
+
+    #cart-box {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #222;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    #order-btn {
+        background: #ff7b00;
+        padding: 10px 25px;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        margin-left: 20px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+</style>
+
+</head>
+<body>
+
+<header>FAST FOOD CORNER – MENU</header>
+
+<!-- 🍔 BURGERS -->
+<div class="category">🍔 BURGERS</div>
+<div class="menu-container">
+
+    <div class="item-card">
+        <img src="https://images.archanaskitchen.com/images/recipes/snack-recipes/burger-recipes/Roasted_Vegetable_Burger_Recipe_with_Hummus_1_cc449c7afb.jpg">
+        <div class="item-name">Veg Burger</div>
+        <div class="price">₹60</div>
+        <button class="btn" onclick="addToCart(60)">Add to Cart</button>
+    </div>
+
+    <div class="item-card">
+        <img src="https://stordfkenticomedia.blob.core.windows.net/df-us/rms/media/recipemediafiles/recipe%20images%20and%20files/retail/desktop%20(600x600)/2024.march/2024_retail_double-stack-cheeseburger_600x600.jpg?ext=.jpg">
+        <div class="item-name">Cheese Burger</div>
+        <div class="price">₹80</div>
+        <button class="btn" onclick="addToCart(80)">Add to Cart</button>
+    </div>
+
+    <div class="item-card">
+        <img src="https://cdn.uengage.io/uploads/29124/image-2348-1770293425.jpeg">
+        <div class="item-name">Chicken Burger</div>
+        <div class="price">₹120</div>
+        <button class="btn" onclick="addToCart(120)">Add to Cart</button>
+    </div>
+
+</div>
+
+<!-- 🍟 FRIES -->
+<div class="category">🍟 FRIES</div>
+<div class="menu-container">
+
+    <div class="item-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYssojePnhY7kKuiqk6Z9EA0dmrXVoQe4DHg&s">
+        <div class="item-name">French Fries</div>
+        <div class="price">₹60</div>
+        <button class="btn" onclick="addToCart(60)">Add to Cart</button>
+    </div>
+
+    <div class="item-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSBt5RdbNGN2PopQ1ox14cVQI7tiXglqrAIA&s">
+        <div class="item-name">Peri Peri Fries</div>
+        <div class="price">₹80</div>
+        <button class="btn" onclick="addToCart(80)">Add to Cart</button>
+    </div>
+
+    <div class="item-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSForRjRQ0FsELv4PH_wdH6hd6YR9H6isDWw&s">
+        <div class="item-name">Cheese Fries</div>
+        <div class="price">₹90</div>
+        <button class="btn" onclick="addToCart(90)">Add to Cart</button>
+    </div>
+
+</div>
+
+<!-- 🍘 SNACKS (NEW CATEGORY) -->
+<div class="category">🍘 SNACKS</div>
+<div class="menu-container">
+
+    <div class="item-card">
+        <img src="https://www.bigbasket.com/media/uploads/recipe/w-l/1041_1.jpg">
+        <div class="item-name">Chicken Nuggets</div>
+        <div class="price">₹100</div>
+        <button class="btn" onclick="addToCart(100)">Add to Cart</button>
+    </div>
+
+    <div class="item-card">
+        <img src="https://smokinandgrillinwitab.com/wp-content/uploads/2025/02/iStock-2188707691-600x600.jpg">
+        <div class="item-name">Onion Rings</div>
+        <div class="price">₹70</div>
+        <button class="btn" onclick="addToCart(70)">Add to Cart</button>
+    </div>
+
+    <div class="item-card">
+        <img src="https://i.ytimg.com/vi/lva-JuUFzs4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBAhXMvQ64iKW7lBf0JfKIXeh_MhQ">
+        <div class="item-name">Samosa</div>
+        <div class="price">₹20</div>
+        <button class="btn" onclick="addToCart(20)">Add to Cart</button>
+    </div>
+
+</div>
+
+<!-- 🥤 DRINKS -->
+<div class="category">🥤 DRINKS</div>
+<div class="menu-container">
+
+    <div class="item-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmGXiTDVDs-gOZFOiv4AkzkHj8HojGivXIWA&s">
+        <div class="item-name">Coke</div>
+        <div class="price">₹40</div>
+        <button class="btn" onclick="addToCart(40)">Add to Cart</button>
+    </div>
+
+    <div class="item-card">
+        <img src="https://taqumart.in/wp-content/uploads/2025/03/7up-cold-drink.jpg">
+        <div class="item-name">7UP</div>
+        <div class="price">₹40</div>
+        <button class="btn" onclick="addToCart(40)">Add to Cart</button>
+    </div>
+
+    <div class="item-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtwaP80FlMnpCynYz-Vu68aYlTL6lR1dJZ2A&s">
+        <div class="item-name">Mint Mojito</div>
+        <div class="price">₹70</div>
+        <button class="btn" onclick="addToCart(70)">Add to Cart</button>
+    </div>
+
+</div>
+
+<!-- 🍕 PIZZA -->
+<div class="category">🍕 PIZZA</div>
+<div class="menu-container">
+
+    <div class="item-card">
+        <img src="https://www.tasteofhome.com/wp-content/uploads/2025/06/Grilled-Veggie-Pizza_EXPS_FT25_48960_AC_0611_1.jpg">
+        <div class="item-name">Veg Pizza</div>
+        <div class="price">₹70</div>
+        <button class="btn" onclick="addToCart(70)">Add to Cart</button>
+    </div>
+
+    <div class="item-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyThxj88cv688GTQk1hZ4huaytjOdVqWMrGQ&s">
+        <div class="item-name">Cheese Pizza</div>
+        <div class="price">₹90</div>
+        <button class="btn" onclick="addToCart(90)">Add to Cart</button>
+    </div>
+
+    <div class="item-card">
+        <img src="https://theartisticcook.com/wp-content/uploads/2025/03/Chicken-Pizza.jpg">
+        <div class="item-name">Chicken Pizza</div>
+        <div class="price">₹120</div>
+        <button class="btn" onclick="addToCart(120)">Add to Cart</button>
+    </div>
+
+</div>
+
+<!-- 🛒 CART FOOTER -->
+
+    <footer style="background:#ff7b00; color:white; text-align:center; padding:10px; margin-top:40px;">
+    © 2026 Fast Food Corner | Designed for AWT Course | All Rights Reserved
+</footer>
+
+<script>
+    let total = 0;
+
+    function addToCart(amount) {
+        total += amount;
+        document.getElementById("total").innerText = total;
+    }
+
+    function confirmOrder() {
+        if (total === 0) {
+            alert("Your cart is empty!");
+        } else {
+            alert("Order placed successfully! Total Bill: ₹" + total);
+        }
+    }
+</script>
+
+</body>
+</html>
