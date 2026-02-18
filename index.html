@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fast Food Corner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            background: linear-gradient(-45deg, #ff512f, #dd2476, #ff9966, #ff5e62);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            overflow-x: hidden;
+            color: white;
+        }
+
+        /* Animated Background */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Circles */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .circle1 {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 10%;
+        }
+
+        .circle2 {
+            width: 150px;
+            height: 150px;
+            bottom: 10%;
+            right: 15%;
+        }
+
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            text-align: center;
+            padding: 30px;
+            font-size: 40px;
+            letter-spacing: 2px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .item {
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            width: 220px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .item:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(to right, #ff512f, #dd2476);
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            box-shadow: 0 0 15px rgba(255,255,255,0.6);
+            transform: scale(1.1);
+        }
+
+        #cart {
+            backdrop-filter: blur(15px);
+            background: rgba(255,255,255,0.2);
+            width: 400px;
+            margin: 40px auto;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        #cartItems li {
+            list-style: none;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .remove-btn {
+            background: crimson;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        .remove-btn:hover {
+            background: darkred;
+        }
+
+        .total {
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Floating decorative circles -->
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+
+<h1>🍔 Fast Food Corner</h1>
+
+<div class="menu">
+
+    <div class="item">
+        <h3>Burger</h3>
+        <p>₹120</p>
+        <button onclick="addToCart('Burger', 120)">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <h3>Pizza</h3>
+        <p>₹250</p>
+        <button onclick="addToCart('Pizza', 250)">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <h3>Fries</h3>
+        <p>₹100</p>
+        <button onclick="addToCart('Fries', 100)">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <h3>Chicken Wrap</h3>
+        <p>₹150</p>
+        <button onclick="addToCart('Chicken Wrap', 150)">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <h3>Sandwich</h3>
+        <p>₹90</p>
+        <button onclick="addToCart('Sandwich', 90)">Add to Cart</button>
+    </div>
+
+</div>
+
+<div id="cart">
+    <h2>🛒 Your Cart</h2>
+    <ul id="cartItems"></ul>
+    <div class="total">
+        Total: ₹<span id="total">0</span>
+    </div>
+</div>
+
+<script>
+    let total = 0;
+
+    function addToCart(itemName, price) {
+        const cartList = document.getElementById("cartItems");
+
+        const li = document.createElement("li");
+        li.innerHTML = `
+            ${itemName} - ₹${price}
+            <button class="remove-btn">Remove</button>
+        `;
+
+        li.querySelector(".remove-btn").onclick = function() {
+            total -= price;
+            document.getElementById("total").textContent = total;
+            cartList.removeChild(li);
+        };
+
+        cartList.appendChild(li);
+
+        total += price;
+        document.getElementById("total").textContent = total;
+    }
+</script>
+
+</body>
+</html>
