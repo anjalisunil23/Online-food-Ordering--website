@@ -1,0 +1,65 @@
+.receipt-page {
+    background-color: #fff8f2;
+    font-family: Arial, sans-serif;
+}
+
+.receipt-container {
+    width: 60%;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.receipt-container h1 {
+    color: #e67300;
+}
+
+.receipt-container table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.receipt-container th {
+    background-color: #ff914d;
+    color: white;
+    padding: 10px;
+}
+
+.receipt-container td {
+    padding: 10px;
+    border-bottom: 1px solid #ffe0cc;
+}
+
+.receipt-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff914d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.receipt-container button:hover {
+    background-color: #e67300;
+}
+
+.logo {
+    width: 180px;
+    height: auto;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tagline {
+    font-style: italic;
+    color: #e67300;
+    margin-bottom: 10px;
+}
+

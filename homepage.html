@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fast Food Corner</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, sans-serif;
+}
+
+body{
+    background:#fff5ed;
+}
+
+/* ---------------- NAVBAR ---------------- */
+
+header{
+    background:linear-gradient(90deg,#ff512f,#ff914d);
+    padding:14px 30px;
+    color:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#fff;
+    letter-spacing:1px;
+    text-shadow:0 3px 8px rgba(0,0,0,0.3);
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.nav-icons i{
+    font-size:20px;
+    margin-left:10px;
+    cursor:pointer;
+}
+
+/* ---------------- OFFERS ---------------- */
+
+.offer-section{
+    padding:25px 20px 10px;
+}
+
+.offer-section h2{
+    text-align:center;
+    margin-bottom:15px;
+    color:#ff3d2e;
+}
+
+.swiper{
+    padding-bottom:25px;
+}
+
+.swiper-slide{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+.offer-card img{
+    width:100%;
+    height:140px;
+    object-fit:cover;
+}
+
+.offer-info{
+    padding:10px;
+    text-align:center;
+}
+
+.offer-info h4{
+    font-size:16px;
+}
+
+.offer-info span{
+    color:#ff3b3b;
+    font-weight:700;
+}
+
+/* ---------------- PROMOTIONAL BANNER ---------------- */
+
+.promo-banner{
+    position:relative;
+    height:400px;
+    background:linear-gradient(135deg,rgba(255,81,47,0.9),rgba(255,145,77,0.9)),
+                url('https://images.unsplash.com/photo-1555939594-58d7cb561404');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    margin:20px 0;
+}
+
+.promo-banner::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,0.3);
+    z-index:1;
+}
+
+.promo-content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:white;
+    max-width:700px;
+    padding:20px;
+}
+
+.promo-content h2{
+    font-size:48px;
+    font-weight:900;
+    margin-bottom:15px;
+    text-shadow:0 4px 8px rgba(0,0,0,0.3);
+    letter-spacing:1px;
+}
+
+.promo-content p{
+    font-size:18px;
+    margin-bottom:25px;
+    text-shadow:0 2px 4px rgba(0,0,0,0.2);
+    font-weight:500;
+}
+
+.promo-buttons{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.promo-btn{
+    padding:14px 32px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+}
+
+.promo-btn-primary{
+    background:white;
+    color:#ff512f;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.promo-btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.3);
+}
+
+.promo-btn-secondary{
+    background:transparent;
+    color:white;
+    border:2px solid white;
+}
+
+.promo-btn-secondary:hover{
+    background:rgba(255,255,255,0.1);
+    transform:translateY(-3px);
+}
+
+/* animated elements */
+
+.promo-badge{
+    display:inline-block;
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(10px);
+    padding:8px 16px;
+    border-radius:20px;
+    color:white;
+    font-size:14px;
+    margin-bottom:15px;
+    font-weight:600;
+    border:1px solid rgba(255,255,255,0.3);
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero{
+    padding:45px 30px;
+    display:flex;
+    gap:30px;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+
+.hero-text h1{
+    font-size:40px;
+    color:#ff3c1f;
+}
+
+.hero-text p{
+    margin:12px 0 18px;
+    font-size:18px;
+    color:#444;
+}
+
+.hero-text button{
+    padding:12px 26px;
+    border:none;
+    border-radius:25px;
+    background:#ff3c1f;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.hero img{
+    max-width:380px;
+    border-radius:25px;
+}
+
+/* ---------------- MENU ---------------- */
+
+.food-section{
+    padding:40px 30px;
+}
+
+.food-section h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#ff4d2d;
+}
+
+.food-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
+}
+
+.food-card{
+    background:white;
+    border-radius:16px;
+    padding:14px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.food-card:hover{
+    transform:translateY(-5px);
+}
+
+.food-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+.food-card h3{
+    margin:10px 0 4px;
+}
+
+.food-card p{
+    font-size:14px;
+    color:#666;
+}
+
+.food-card button{
+    margin-top:10px;
+    padding:8px 18px;
+    background:#ff512f;
+    border:none;
+    color:white;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+/* ---------------- TOP CATEGORIES ---------------- */
+
+
+
+.categories-section{
+    padding:50px 20px;
+    background:linear-gradient(180deg,#fff5ec,#ffffff);
+}
+
+.categories-section h2{
+    text-align:center;
+    margin-bottom:35px;
+    color:#ff3d1f;
+    font-size:28px;
+    letter-spacing:0.5px;
+}
+
+/* grid */
+
+.categories-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    gap:22px;
+    max-width:1050px;
+    margin:0 auto;
+}
+
+/* card */
+
+.category-card{
+    position:relative;
+    border-radius:18px;
+    padding:22px 15px 20px;
+    text-align:center;
+    cursor:pointer;
+    color:#ff512f;
+
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    border:2px solid rgba(255,255,255,0.25);
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    transition:all .35s ease;
+    overflow:hidden;
+}
+
+/* soft light overlay */
+
+.category-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at top left,
+        rgba(255,255,255,0.05),
+        transparent 60%);
+    pointer-events:none;
+}
+
+/* hover animation */
+
+.category-card:hover{
+    transform:translateY(-8px) scale(1.08);
+    background:rgba(255,255,255,0.25);
+    box-shadow:0 12px 30px rgba(255,88,36,0.15);
+}
+
+/* icon bubble */
+
+.category-icon{
+    width:60px;
+    height:60px;
+    margin:0 auto 10px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:linear-gradient(135deg,#ff512f,#ff914d);
+    box-shadow:0 8px 20px rgba(255,88,36,0.3),
+               inset 0 2px 5px rgba(255,255,255,0.3);
+    font-size:32px;
+    transform:scale(1);
+    transition:all 0.3s ease;
+}
+
+/* text */
+
+.category-card p{
+    margin-top:6px;
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:.3px;
+}
+
+/* small animation on hover */
+
+.category-card:hover .category-icon{
+    transform:scale(1.15) rotate(5deg);
+    box-shadow:0 12px 25px rgba(255,88,36,0.4),
+               inset 0 2px 5px rgba(255,255,255,0.4);
+}
+
+/* view all button */
+
+.view-all-btn{
+    width:60px;
+    height:60px;
+    margin:0 auto 10px;
+    background:linear-gradient(135deg,#ff512f,#ff914d);
+    border:none;
+    border-radius:50%;
+    font-size:24px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    box-shadow:0 8px 20px rgba(255,88,36,0.3);
+    color:white;
+}
+
+.view-all-btn:hover{
+    transform:scale(1.15) rotate(5deg);
+    box-shadow:0 12px 25px rgba(255,88,36,0.4);
+}
+
+/* modal styles */
+
+.category-modal{
+    display:none;
+    position:fixed;
+    z-index:2000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.5);
+    animation:fadeIn 0.3s;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.modal-content{
+    background-color:#fff;
+    margin:5% auto;
+    padding:30px;
+    border-radius:20px;
+    width:90%;
+    max-width:600px;
+    max-height:80vh;
+    overflow-y:auto;
+    animation:slideIn 0.3s;
+}
+
+@keyframes slideIn{
+    from{transform:translateY(-50px);opacity:0;}
+    to{transform:translateY(0);opacity:1;}
+}
+
+.close-modal{
+    color:#aaa;
+    float:right;
+    font-size:28px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.close-modal:hover{
+    color:#000;
+}
+
+.modal-categories{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
+    gap:15px;
+    margin-top:20px;
+}
+
+.modal-category-item{
+    padding:15px;
+    background:rgba(255,81,47,0.1);
+    border-radius:12px;
+    text-align:center;
+    cursor:pointer;
+    transition:all 0.3s;
+    border:2px solid transparent;
+}
+
+.modal-category-item:hover{
+    background:rgba(255,81,47,0.2);
+    transform:scale(1.05);
+    border-color:#ff512f;
+}
+
+.modal-category-item .icon{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.modal-category-item p{
+    font-size:13px;
+    color:#333;
+    font-weight:600;
+}
+
+
+/* ---------------- FOOTER ---------------- */
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:16px;
+    margin-top:40px;
+}
+
+@media(max-width:768px){
+    .hero{
+        text-align:center;
+        justify-content:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="homepage.html" style="text-decoration:none;color:white;display:flex;align-items:center;gap:0;"><div class="logo">
+        <span style="font-size:28px;">🍔</span>
+        <span>Foodie</span>
+    </div></a>
+
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="offers.html">Offers</a>
+        <a href="login.html">Login</a>
+
+        <div class="nav-icons">
+            <a href="login.html" style="text-decoration:none;color:white;"><i class="fa-regular fa-user" style="cursor:pointer;"></i></a>
+            <a href="cart.html" style="text-decoration:none;color:white;"><i class="fa-solid fa-cart-shopping" style="font-size:20px;cursor:pointer;"></i></a>
+        </div>
+    </nav>
+</header>
+
+<!-- ================= OFFERS SWIPER ================= -->
+
+<section class="offer-section">
+    <h2>🔥 Hot Offers</h2>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1601924638867-3ec62fbd98d4">
+                    <div class="offer-info">
+                        <h4>Cheese Pizza</h4>
+                        <span>30% OFF</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+                    <div class="offer-info">
+                        <h4>Burger Combo</h4>
+                        <span>₹99 Only</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38">
+                    <div class="offer-info">
+                        <h4>Pasta</h4>
+                        <span>25% OFF</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950">
+                    <div class="offer-info">
+                        <h4>Biryani</h4>
+                        <span>Free Drink</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1550317138-10000687a72b">
+                    <div class="offer-info">
+                        <h4>Fries</h4>
+                        <span>Buy 1 Get 1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b">
+                    <div class="offer-info">
+                        <h4>Dessert</h4>
+                        <span>20% OFF</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1617196033257-d9b133cf3a22">
+                    <div class="offer-info">
+                        <h4>Sandwich</h4>
+                        <span>₹79 Only</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe">
+                    <div class="offer-info">
+                        <h4>Noodles</h4>
+                        <span>15% OFF</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>Fast & Tasty Food<br>Delivered to You</h1>
+        <p>Fresh • Hot • Affordable</p>
+        <button onclick="scrollToMenu()">Order Now</button>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+</section>
+
+<!-- ================= TOP CATEGORIES ================= -->
+
+<section class="categories-section">
+    <h2>📂 Top Categories</h2>
+
+    <div class="categories-container">
+        <div class="category-card" onclick="filterByCategory('Pizza')">
+            <div class="category-icon">🍕</div>
+            <p>Pizza</p>
+        </div>
+
+        <div class="category-card" onclick="filterByCategory('Burgers')">
+            <div class="category-icon">🍔</div>
+            <p>Burgers</p>
+        </div>
+
+        <div class="category-card" onclick="filterByCategory('Pasta')">
+            <div class="category-icon">🍝</div>
+            <p>Pasta</p>
+        </div>
+
+        <div class="category-card" onclick="filterByCategory('Biryani')">
+            <div class="category-icon">🍛</div>
+            <p>Biryani</p>
+        </div>
+
+        <div class="category-card" onclick="filterByCategory('Dessert')">
+            <div class="category-icon">🍰</div>
+            <p>Desserts</p>
+        </div>
+
+        <div class="category-card" onclick="filterByCategory('Chicken')">
+            <div class="category-icon">🍗</div>
+            <p>Chicken</p>
+        </div>
+
+        <div class="category-card" onclick="filterByCategory('Sandwich')">
+            <div class="category-icon">🥪</div>
+            <p>Sandwich</p>
+        </div>
+
+        <div class="category-card" onclick="filterByCategory('Salad')">
+            <div class="category-icon">🥗</div>
+            <p>Salad</p>
+        </div>
+
+        <div class="category-card" onclick="openCategoryModal()">
+            <button class="view-all-btn">+</button>
+            <p>More</p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= CATEGORY MODAL ================= -->
+
+<div id="categoryModal" class="category-modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeCategoryModal()">&times;</span>
+        <h2 style="color:#ff512f;margin-bottom:20px;">All Categories</h2>
+        
+        <div class="modal-categories">
+            <div class="modal-category-item" onclick="selectCategory('Drinks')">
+                <div class="icon">🥛</div>
+                <p>Drinks</p>
+            </div>
+            
+            <div class="modal-category-item" onclick="selectCategory('Juices')">
+                <div class="icon">🧃</div>
+                <p>Juices</p>
+            </div>
+            
+            <div class="modal-category-item" onclick="selectCategory('Smoothies')">
+                <div class="icon">🧋</div>
+                <p>Smoothies</p>
+            </div>
+            
+            <div class="modal-category-item" onclick="selectCategory('Coffee')">
+                <div class="icon">☕</div>
+                <p>Coffee</p>
+            </div>
+            
+            <div class="modal-category-item" onclick="selectCategory('Tea')">
+                <div class="icon">🍵</div>
+                <p>Tea</p>
+            </div>
+            
+            <div class="modal-category-item" onclick="selectCategory('Shakes')">
+                <div class="icon">🥤</div>
+                <p>Shakes</p>
+            </div>
+            
+            <div class="modal-category-item" onclick="selectCategory('Appetizers')">
+                <div class="icon">🥟</div>
+                <p>Appetizers</p>
+            </div>
+            
+            <div class="modal-category-item" onclick="selectCategory('Seafood')">
+                <div class="icon">🦞</div>
+                <p>Seafood</p>
+            </div>
+            
+            <div class="modal-category-item" onclick="selectCategory('Vegetarian')">
+                <div class="icon">🥗</div>
+                <p>Vegetarian</p>
+            </div>
+            
+            <div class="modal-category-item" onclick="selectCategory('Sushi')">
+                <div class="icon">🍣</div>
+                <p>Sushi</p>
+            </div>
+            
+            <div class="modal-category-item" onclick="selectCategory('Tacos')">
+                <div class="icon">🌮</div>
+                <p>Tacos</p>
+            </div>
+            
+            <div class="modal-category-item" onclick="selectCategory('Wraps')">
+                <div class="icon">🌯</div>
+                <p>Wraps</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= MENU ================= -->
+
+<section class="food-section" id="menu">
+    <h2>Popular Items</h2>
+
+    <div class="food-container">
+
+        <div class="food-card">
+            <img src="https://images.unsplash.com/photo-1601924638867-3ec62fbd98d4">
+            <h3>Pizza</h3>
+            <p>Cheesy & hot</p>
+            <button onclick="order('Pizza')">Add</button>
+        </div>
+
+        <div class="food-card">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+            <h3>Burger</h3>
+            <p>Juicy & fresh</p>
+            <button onclick="order('Burger')">Add</button>
+        </div>
+
+        <div class="food-card">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38">
+            <h3>Pasta</h3>
+            <p>Creamy delight</p>
+            <button onclick="order('Pasta')">Add</button>
+        </div>
+
+        <div class="food-card">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950">
+            <h3>Biryani</h3>
+            <p>Spicy & aromatic</p>
+            <button onclick="order('Biryani')">Add</button>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 Fast Food Corner
+</footer>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+const swiper = new Swiper(".mySwiper", {
+    spaceBetween: 15,
+    slidesPerView: 1.2,
+    speed: 2000,
+    loop: true,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+    },
+    slidesPerGroup: 1,   // ✅ move ONE card at a time
+
+    breakpoints:{
+        600:{ slidesPerView:3 },
+        900:{ slidesPerView:4 },
+        1200:{ slidesPerView:6 }
+    }
+});
+
+function order(item){
+    const priceMap = {
+        Pizza: 199,
+        Burger: 129,
+        Pasta: 159,
+        Biryani: 179
+    };
+    const price = priceMap[item] || 99;
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existing = cart.find((cartItem) => cartItem.name === item);
+    if (existing) {
+        existing.quantity = (existing.quantity || 1) + 1;
+    } else {
+        cart.push({name: item, price: price, quantity: 1});
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Added to cart: " + item);
+}
+
+function scrollToMenu(){
+    document.getElementById("menu").scrollIntoView({behavior:"smooth"});
+}
+
+function scrollToCategories(){
+    document.querySelector(".categories-section").scrollIntoView({behavior:"smooth"});
+}
+
+function filterByCategory(category){
+    localStorage.setItem("selectedCategory", category);
+    window.location.href = "menu.html";
+}
+
+function openCategoryModal(){
+    document.getElementById("categoryModal").style.display="block";
+}
+
+function closeCategoryModal(){
+    document.getElementById("categoryModal").style.display="none";
+}
+
+window.onclick=function(event){
+    const modal=document.getElementById("categoryModal");
+    if(event.target==modal){
+        modal.style.display="none";
+    }
+}
+
+function selectCategory(category){
+    filterByCategory(category);
+    closeCategoryModal();
+}
+</script>
+
+</body>
+</html>

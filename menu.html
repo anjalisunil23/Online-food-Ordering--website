@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foodie - Menu</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,sans-serif;}
+body{background:#fff5ed;color:#222;}
+header{background:linear-gradient(90deg,#ff512f,#ff914d);padding:14px 24px;color:#fff;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;}
+.logo{font-size:24px;font-weight:800;color:#fff;text-decoration:none;display:flex;gap:10px;align-items:center;}
+nav{display:flex;gap:14px;align-items:center;}
+nav a{color:#fff;text-decoration:none;font-weight:600;}
+.section-title{font-size:28px;color:#ff512f;text-align:center;margin:24px 0 8px;}
+.subtitle{text-align:center;color:#666;margin-bottom:18px;}
+.menu-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;padding:0 24px 28px;}
+.item-card{background:#fff;border-radius:14px;box-shadow:0 8px 18px rgba(0,0,0,.08);overflow:hidden;display:flex;flex-direction:column;}
+.item-card img{width:100%;height:150px;object-fit:cover;}
+.item-meta{padding:12px;display:flex;flex-direction:column;gap:8px;}
+.item-name{font-weight:700;font-size:18px;}
+.price{color:#ff512f;font-weight:700;}
+.cat-pill{font-size:12px;background:#ffe4d3;color:#b6411f;display:inline-block;padding:4px 8px;border-radius:999px;width:fit-content;}
+.btn{padding:10px 14px;background:#ff512f;color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600;}
+.btn:hover{background:#e64722;}
+.category{font-size:24px;font-weight:700;color:#ff7b00;margin:18px 24px 10px;}
+.cart-strip{position:fixed;bottom:0;left:0;right:0;background:#1f1f1f;color:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px;}
+.cart-strip a{color:#fff;text-decoration:none;background:#ff512f;padding:8px 14px;border-radius:8px;font-weight:600;}
+.spacer{height:68px;}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="homepage.html"><span>🍔</span><span>Foodie</span></a>
+  <nav>
+    <a href="homepage.html">Home</a>
+    <a href="offers.html">Offers</a>
+    <a href="cart.html">Cart</a>
+    <a href="login.html">Login</a>
+  </nav>
+</header>
+
+<h1 class="section-title">Foodie Menu</h1>
+<p class="subtitle">Add your favorites to cart</p>
+
+<div class="category" id="cat-Burgers">🍔 Burgers</div>
+<div class="menu-container">
+  <div class="item-card" data-category="Burgers"><img src="https://images.archanaskitchen.com/images/recipes/snack-recipes/burger-recipes/Roasted_Vegetable_Burger_Recipe_with_Hummus_1_cc449c7afb.jpg" alt="Veg Burger"><div class="item-meta"><span class="cat-pill">Burgers</span><div class="item-name">Veg Burger</div><div class="price">₹60</div><button class="btn" onclick="addToCart('Veg Burger',60)">Add to Cart</button></div></div>
+  <div class="item-card" data-category="Burgers"><img src="https://stordfkenticomedia.blob.core.windows.net/df-us/rms/media/recipemediafiles/recipe%20images%20and%20files/retail/desktop%20(600x600)/2024.march/2024_retail_double-stack-cheeseburger_600x600.jpg?ext=.jpg" alt="Cheese Burger"><div class="item-meta"><span class="cat-pill">Burgers</span><div class="item-name">Cheese Burger</div><div class="price">₹80</div><button class="btn" onclick="addToCart('Cheese Burger',80)">Add to Cart</button></div></div>
+  <div class="item-card" data-category="Burgers"><img src="https://cdn.uengage.io/uploads/29124/image-2348-1770293425.jpeg" alt="Chicken Burger"><div class="item-meta"><span class="cat-pill">Burgers</span><div class="item-name">Chicken Burger</div><div class="price">₹120</div><button class="btn" onclick="addToCart('Chicken Burger',120)">Add to Cart</button></div></div>
+</div>
+
+<div class="category" id="cat-Fries">🍟 Fries</div>
+<div class="menu-container">
+  <div class="item-card" data-category="Fries"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYssojePnhY7kKuiqk6Z9EA0dmrXVoQe4DHg&s" alt="French Fries"><div class="item-meta"><span class="cat-pill">Fries</span><div class="item-name">French Fries</div><div class="price">₹60</div><button class="btn" onclick="addToCart('French Fries',60)">Add to Cart</button></div></div>
+  <div class="item-card" data-category="Fries"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSBt5RdbNGN2PopQ1ox14cVQI7tiXglqrAIA&s" alt="Peri Peri Fries"><div class="item-meta"><span class="cat-pill">Fries</span><div class="item-name">Peri Peri Fries</div><div class="price">₹80</div><button class="btn" onclick="addToCart('Peri Peri Fries',80)">Add to Cart</button></div></div>
+  <div class="item-card" data-category="Fries"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSForRjRQ0FsELv4PH_wdH6hd6YR9H6isDWw&s" alt="Cheese Fries"><div class="item-meta"><span class="cat-pill">Fries</span><div class="item-name">Cheese Fries</div><div class="price">₹90</div><button class="btn" onclick="addToCart('Cheese Fries',90)">Add to Cart</button></div></div>
+</div>
+
+<div class="category" id="cat-Drinks">🥤 Drinks</div>
+<div class="menu-container">
+  <div class="item-card" data-category="Drinks"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmGXiTDVDs-gOZFOiv4AkzkHj8HojGivXIWA&s" alt="Coke"><div class="item-meta"><span class="cat-pill">Drinks</span><div class="item-name">Coke</div><div class="price">₹40</div><button class="btn" onclick="addToCart('Coke',40)">Add to Cart</button></div></div>
+  <div class="item-card" data-category="Drinks"><img src="https://taqumart.in/wp-content/uploads/2025/03/7up-cold-drink.jpg" alt="7UP"><div class="item-meta"><span class="cat-pill">Drinks</span><div class="item-name">7UP</div><div class="price">₹40</div><button class="btn" onclick="addToCart('7UP',40)">Add to Cart</button></div></div>
+  <div class="item-card" data-category="Drinks"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtwaP80FlMnpCynYz-Vu68aYlTL6lR1dJZ2A&s" alt="Mint Mojito"><div class="item-meta"><span class="cat-pill">Drinks</span><div class="item-name">Mint Mojito</div><div class="price">₹70</div><button class="btn" onclick="addToCart('Mint Mojito',70)">Add to Cart</button></div></div>
+</div>
+
+<div class="category" id="cat-Pizza">🍕 Pizza</div>
+<div class="menu-container">
+  <div class="item-card" data-category="Pizza"><img src="https://www.tasteofhome.com/wp-content/uploads/2025/06/Grilled-Veggie-Pizza_EXPS_FT25_48960_AC_0611_1.jpg" alt="Veg Pizza"><div class="item-meta"><span class="cat-pill">Pizza</span><div class="item-name">Veg Pizza</div><div class="price">₹70</div><button class="btn" onclick="addToCart('Veg Pizza',70)">Add to Cart</button></div></div>
+  <div class="item-card" data-category="Pizza"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyThxj88cv688GTQk1hZ4huaytjOdVqWMrGQ&s" alt="Cheese Pizza"><div class="item-meta"><span class="cat-pill">Pizza</span><div class="item-name">Cheese Pizza</div><div class="price">₹90</div><button class="btn" onclick="addToCart('Cheese Pizza',90)">Add to Cart</button></div></div>
+  <div class="item-card" data-category="Pizza"><img src="https://theartisticcook.com/wp-content/uploads/2025/03/Chicken-Pizza.jpg" alt="Chicken Pizza"><div class="item-meta"><span class="cat-pill">Pizza</span><div class="item-name">Chicken Pizza</div><div class="price">₹120</div><button class="btn" onclick="addToCart('Chicken Pizza',120)">Add to Cart</button></div></div>
+</div>
+
+<div class="spacer"></div>
+<div class="cart-strip">
+  <div>Items in cart: <strong id="cartCount">0</strong></div>
+  <a href="cart.html">Go to Cart 🛒</a>
+</div>
+
+<script>
+function getCart(){
+  return JSON.parse(localStorage.getItem('cart')) || [];
+}
+
+function setCart(cart){
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function updateCartCount(){
+  const cart = getCart();
+  const totalQty = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  document.getElementById('cartCount').textContent = totalQty;
+}
+
+function addToCart(name, price){
+  if (!name || !Number.isFinite(price) || price <= 0) {
+    alert('Invalid item data.');
+    return;
+  }
+  const cart = getCart();
+  const existing = cart.find((item) => item.name === name);
+  if (existing) {
+    existing.quantity = (existing.quantity || 1) + 1;
+  } else {
+    cart.push({ name, price, quantity: 1 });
+  }
+  setCart(cart);
+  updateCartCount();
+  alert(name + ' added to cart!');
+}
+
+function applySelectedCategory(){
+  const selected = localStorage.getItem('selectedCategory');
+  if (!selected) return;
+
+  const normalize = (value) => (value || '').toLowerCase();
+  const aliases = {
+    burger: 'burgers',
+    burgers: 'burgers',
+    fries: 'fries',
+    drink: 'drinks',
+    drinks: 'drinks',
+    juice: 'drinks',
+    juices: 'drinks',
+    pizza: 'pizza'
+  };
+
+  const key = aliases[normalize(selected)] || normalize(selected);
+  const target = document.getElementById('cat-' + key.charAt(0).toUpperCase() + key.slice(1));
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  localStorage.removeItem('selectedCategory');
+}
+
+updateCartCount();
+applySelectedCategory();
+</script>
+</body>
+</html>

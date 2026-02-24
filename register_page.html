@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="reg_style.css">
+
+    </head>
+    <body><center>
+        <div class="reg_page">
+            <form>
+                <table>
+                    <tr>
+                        <td>
+                            <label>Full Name </label>
+                        </td>
+                        <td>
+                            <input type="text" required id="reg_name"><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Phone Number </label>
+                        </td>
+                        <td>
+                            <input type="tel" required id="reg_number" class="no"><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>E-mail </label>
+                        </td>
+                        <td>
+                            <input type="email" required id="reg_mail"><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Password </label>
+                        </td>
+                        <td>
+                            <div class="password-box">
+                                <input type="password" id="reg_password" required>
+                                <span class="eye" onclick="togglePassword('reg_password', this)">👁</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Confirm Password </label>
+                        </td>
+                        <td>
+                            <div class="password-box">
+                                <input type="password" id="reg_confirm_password" required>
+                                <span class="eye" onclick="togglePassword('reg_confirm_password', this)">👁</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Address </label>
+                        </td>
+                        <td>
+                            <textarea type="text" required id="reg_location"></textarea><br> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align:center;">
+                            <input type="submit" value="Submit">
+                            <input type="reset" value="Reset">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+<script src="reg_script.js"></script>
+    </body>
+</html>

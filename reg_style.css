@@ -1,0 +1,125 @@
+/* Page background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff6a00, #ffb347);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Registration card */
+.reg_page {
+    width: 420px;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Table layout */
+table {
+    width: 100%;
+}
+
+/* Labels */
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ff6a00;
+}
+
+/* Inputs & textarea */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0 12px;
+    border: 2px solid #ffd1a3;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+/* Textarea */
+textarea {
+    resize: none;
+}
+
+/* Focus effect */
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #ff6a00;
+    box-shadow: 0 0 8px rgba(255, 106, 0, 0.4);
+}
+
+/* Buttons */
+input[type="submit"],
+input[type="reset"] {
+    padding: 10px 24px;
+    margin: 10px 6px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Submit button */
+input[type="submit"] {
+    background: linear-gradient(135deg, #ff6a00, #ff3d00);
+    color: #fff;
+}
+
+/* Reset button */
+input[type="reset"] {
+    background: #ffd1a3;
+    color: #333;
+}
+
+/* Hover effects */
+input[type="submit"]:hover {
+    transform: scale(1.05);
+}
+
+input[type="reset"]:hover {
+    background: #ffb347;
+}
+
+/* Mobile responsive */
+@media (max-width: 500px) {
+    .reg_page {
+        width: 90%;
+        padding: 25px;
+    }
+}
+.password-box {
+    position: relative;
+    width: 100%;
+}
+
+.password-box input {
+    width: 86%;
+    padding-right: 45px;   /* space for eye */
+}
+
+.eye {
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #ff6a00;
+    background: #fff;      /* masks the border */
+    padding: 2px;
+    border-radius: 50%;
+}
+
+
